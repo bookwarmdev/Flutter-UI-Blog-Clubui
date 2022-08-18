@@ -26,16 +26,7 @@ class AppValidator {
       return "should contain at least: \none upper case, one lower case, \none digit and special character";
     } else if (RegExp(".{8,}").hasMatch(value) == false) {
       return "Must be more than 8 charater";
-    }
-    // else if (RegExp("(?=.*[A-Z])").hasMatch(value)) {
-    //   return "should contain at least one upper case";
-    // } else if (RegExp("(?=.*[a-z])").hasMatch(value)) {
-    //   return "should contain at least one lower case";
-    // } else if (RegExp("(?=.*[0-9])").hasMatch(value)) {
-    //   return "should contain at least one digit";
-    // } else if (RegExp("(?=.*?[!@#\$&*~])").hasMatch(value)) {
-    //   return "should contain at least one Special character";
-    // }
+    } 
 
     return null;
   }
