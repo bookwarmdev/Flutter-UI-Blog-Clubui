@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class NewsScreen extends StatefulWidget {
-  const NewsScreen({Key? key}) : super(key: key);
+  const NewsScreen({Key? key, this.index}) : super(key: key);
+  final String? index;
 
   @override
   State<NewsScreen> createState() => _NewsScreenState();
@@ -13,40 +14,40 @@ class NewsScreen extends StatefulWidget {
 class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        floatingActionButton: Container(
-          width: 120,
-          height: 50,
-          decoration: BoxDecoration(
-            color: AppColor.lightColorScheme.primary,
-            borderRadius: BorderRadius.circular(20.0),
-            boxShadow: [
-              BoxShadow(
-                color: AppColor.lightColorScheme.primary,
-                spreadRadius: 1,
-                offset: const Offset(0, 1),
-                blurRadius: 5.0,
-              )
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset("assets/svgs/Thumbs.svg"),
-              const SizedBox(
-                width: 10.0,
-              ),
-              Text(
-                "2.1k",
-                style: AppStyle.headline6.copyWith(
-                  color: AppColor.lightColorScheme.background,
-                ),
-              ),
-            ],
-          ),
+    return Scaffold(
+      floatingActionButton: Container(
+        width: 120,
+        height: 50,
+        decoration: BoxDecoration(
+          color: AppColor.lightColorScheme.primary,
+          borderRadius: BorderRadius.circular(20.0),
+          boxShadow: [
+            BoxShadow(
+              color: AppColor.lightColorScheme.primary,
+              spreadRadius: 1,
+              offset: const Offset(0, 1),
+              blurRadius: 5.0,
+            )
+          ],
         ),
-        body: Stack(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset("assets/svgs/Thumbs.svg"),
+            const SizedBox(
+              width: 10.0,
+            ),
+            Text(
+              "2.1k",
+              style: AppStyle.headline6.copyWith(
+                color: AppColor.lightColorScheme.background,
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: SafeArea(
+        child: Stack(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,8 +154,11 @@ class _NewsScreenState extends State<NewsScreen> {
                     physics: const BouncingScrollPhysics(),
                     child: Column(
                       children: [
-                        Image.asset(
-                          "assets/images/image4.png",
+                        Hero(
+                          tag: "news1",
+                          child: Image.asset(
+                            "assets/images/image4.png",
+                          ),
                         ),
                         const SizedBox(
                           height: 15.0,
@@ -166,7 +170,7 @@ class _NewsScreenState extends State<NewsScreen> {
                           child: Column(
                             children: [
                               Text(
-                                "A man’s sexuality is never your mind responsibility.",
+                                "A ${widget.index} man’s sexuality is never your mind responsibility.",
                                 style: AppStyle.headline4.copyWith(
                                   fontFamily: AppStyle.avenirHeavy,
                                   fontSize: 18.0,
@@ -221,7 +225,6 @@ class _NewsScreenState extends State<NewsScreen> {
                     ],
                     begin: Alignment.bottomCenter,
                     end: Alignment.center,
-                    // transform: GradientRotation(-90),
                   ),
                 ),
               ),

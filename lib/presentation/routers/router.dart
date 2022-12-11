@@ -17,6 +17,8 @@ class BlogClubUi {
 
 class AppRouter {
   static Route route(RouteSettings settings) {
+    final args = settings.arguments;
+
     switch (settings.name) {
       case BlogClubUi.onBoardingScreen:
         return MaterialPageRoute<Widget>(
@@ -35,13 +37,20 @@ class AppRouter {
           builder: (context) => const StatusScreen(),
         );
       case BlogClubUi.newsScreen:
+        if (args is String) {
+          return MaterialPageRoute(
+            builder: (context) => NewsScreen(
+              index: args,
+            ),
+          );
+        }
         return MaterialPageRoute(
-          builder: (context) => const NewsScreen(),
+          builder: (context) => const Text("data"),
         );
       case BlogClubUi.profileScreen:
         return MaterialPageRoute(
           builder: (context) => const ProfileScreen(),
-        ); 
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Text("data"),

@@ -81,20 +81,6 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-          // BottomBarItemsModel(
-          //   icon: SvgPicture.asset("assets/nav/Articles.svg"),
-          //   iconSelected: SvgPicture.asset("assets/nav/Articles.svg"),
-          //   title: "Articles",
-          //   titleStyle: AppStyle.button.copyWith(
-          //     color: AppColor.lightColorScheme.onPrimaryContainer,
-          //   ),
-          //   dotColor: AppColor.lightColorScheme.onPrimaryContainer,
-          //   onTap: () => setState(
-          //     () {
-          //       currentScreen = Screen.articles;
-          //     },
-          //   ),
-          // ),
           BottomBarItemsModel(
             icon: SvgPicture.asset("assets/nav/Search.svg"),
             iconSelected: SvgPicture.asset("assets/nav/Search.svg"),
@@ -186,26 +172,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            // FloatingCenterButtonChild(
-            //   child: SvgPicture.asset("assets/svgs/Scale.svg"),
-            //   onTap: () {},
-            // ),
-            // FloatingCenterButtonChild(
-            //   child: SvgPicture.asset("assets/svgs/Link.svg"),
-            //   onTap: () {},
-            // ),
-            // FloatingCenterButtonChild(
-            //   child: SvgPicture.asset("assets/svgs/Align.svg"),
-            //   onTap: () {},
-            // ),
-            // FloatingCenterButtonChild(
-            //   child: SvgPicture.asset("assets/svgs/Play.svg"),
-            //   onTap: () {},
-            // ),
-            // FloatingCenterButtonChild(
-            //   child: SvgPicture.asset("assets/svgs/Image.svg"),
-            //   onTap: () {},
-            // ),
             FloatingCenterButtonChild(
               child: Container(
                   width: MediaQuery.of(context).size.width,

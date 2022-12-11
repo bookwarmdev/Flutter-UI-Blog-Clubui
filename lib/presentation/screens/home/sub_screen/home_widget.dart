@@ -1,6 +1,7 @@
 import 'package:blogclubui/core/core.dart';
 import 'package:blogclubui/data/models/status_model.dart';
 import 'package:blogclubui/presentation/routers/router.dart';
+import 'package:blogclubui/presentation/screens/home/news_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -227,10 +228,21 @@ class Home extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: InkWell(
-                    onTap: () => Navigator.pushNamed(
-                      context,
-                      BlogClubUi.newsScreen,
-                    ),
+                    onTap: () {
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => NewsScreen(
+                      //               index: index,
+                      //             )));
+                      Navigator.pushNamed(
+                        context, BlogClubUi.newsScreen,
+                        arguments: index,
+                        // arguments: NewsScreen(
+                        //   index: index,
+                        // ),
+                      );
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
@@ -246,9 +258,12 @@ class Home extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          Image.asset(
-                            "assets/images/image.png",
-                            width: MediaQuery.of(context).size.width / 5,
+                          Hero(
+                            tag: "news$index",
+                            child: Image.asset(
+                              "assets/images/image.png",
+                              width: MediaQuery.of(context).size.width / 5,
+                            ),
                           ),
                           const SizedBox(
                             width: 20.0,
